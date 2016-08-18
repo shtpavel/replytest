@@ -20,5 +20,14 @@ namespace ReplyTest.Http.Model
 
         [JsonProperty(PropertyName = "downloads")]
         public string Downloads { get; set; }
+
+        [JsonProperty(PropertyName = "icon")]
+        public string Icon { get; set; }
+
+        [JsonProperty(PropertyName = "icon_72")]
+        public string IconSmall { get; set; }
+
+        [JsonProperty(PropertyName = "short_desc")]
+        public string ShortDesc { get; set; }
     }
 }

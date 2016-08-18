@@ -32,11 +32,21 @@
             }, {
                 url: '/admin',
                 config: {
-                    title: 'admin',
+                    title: 'categories',
                     templateUrl: 'app/admin/admin.html',
                     settings: {
                         nav: 2,
                         content: '<i class="fa fa-lock"></i> Categories'
+                    }
+                }
+            }, {
+                url: '/search',
+                config: {
+                    title: 'search',
+                    templateUrl: 'app/search/search.html',
+                    settings: {
+                        nav: 3,
+                        content: '<i class="fa fa-lock"></i> Search'
                     }
                 }
             }

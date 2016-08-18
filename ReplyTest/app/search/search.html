@@ -1,0 +1,49 @@
+﻿<section id="search-view" class="mainbar" data-ng-controller="search as vm">
+    <section class="matter">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8">
+                    <input type="text" ng-model="vm.pattern" class="col-md-12" placeholder="Application name..."/>
+                </div>
+                <div class="col-md-2">
+                    <button class="btn btn-primary" ng-click="vm.search()">Search</button>
+                </div>
+            </div>
+            <br />
+            <hr />
+            <div class="row">
+                <div data-ng-repeat="app in vm.searchResults" class="col-sm-3">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">{{ app.title }}</h3>
+                        </div>
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <img src="{{app.icon_72}}" class="img-circle">
+                                </div>
+                                <div class="col-sm-8">
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            {{app.category}}
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            {{app.downloads}}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    {{ vm.short_desc }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</section>

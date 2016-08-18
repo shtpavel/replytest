@@ -9,12 +9,17 @@
 
         var service = {
             getTopApps: getTopApps,
+            search: search,
         };
 
         return service;
 
         function getTopApps() {
             return $http.get("/api/top");
+        }
+
+        function search(pattern) {
+            return $http.get("/api/search?searchPattern=" + pattern);
         }
     }
 })();

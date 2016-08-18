@@ -26,5 +26,11 @@ namespace ReplyTest.Controllers
 
             return request.CreateResponse(HttpStatusCode.OK, response);
         }
+
+        [HttpGet, Route("search")]
+        public async Task<HttpResponseMessage> Search(HttpRequestMessage request, string searchPattern)
+        {
+            return request.CreateResponse(HttpStatusCode.OK, await _client.GetSearchResults(searchPattern));
+        }
     }
 }
