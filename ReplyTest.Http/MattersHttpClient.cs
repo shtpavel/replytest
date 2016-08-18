@@ -90,7 +90,7 @@ namespace ReplyTest.Http
             {
                 foreach (var keyValuePair in queryParams)
                 {
-                    builder.Append($"&{keyValuePair.Key}={keyValuePair.Value}");
+                    builder.AppendFormat($"&{keyValuePair.Key}={keyValuePair.Value}");
 
                 }
             }
