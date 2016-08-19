@@ -33,11 +33,5 @@ namespace ReplyTest.Controllers
         {
             return request.CreateResponse(HttpStatusCode.OK, await _appsService.SearchAppsAsync(searchPattern, 25));
         }
-
-        [HttpGet, Route("")]
-        public async Task<HttpResponseMessage> GetAsync(HttpRequestMessage request, string searchPattern)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

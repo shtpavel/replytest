@@ -25,10 +25,10 @@ namespace ReplyTest.Infrastructure
 
         private void RegisterDependencies(UnityContainer container)
         {
-            container.RegisterType<IMattersHttpClient, MattersHttpClient>();
-            container.RegisterType<IDataContext, DataContext>();
-            container.RegisterType<IAppsRepository, AppsRepository>();
-            container.RegisterType<IAppsService, AppsService>();
+            container.RegisterType<IMattersHttpClient, MattersHttpClient>(new PerRequestLifetimeManager());
+            container.RegisterType<IDataContext, DataContext>(new PerRequestLifetimeManager());
+            container.RegisterType<IAppsRepository, AppsRepository>(new PerRequestLifetimeManager());
+            container.RegisterType<IAppsService, AppsService>(new PerRequestLifetimeManager());
         }
     }
 }
