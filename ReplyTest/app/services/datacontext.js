@@ -6,10 +6,13 @@
 
     function datacontext(common, $http) {
         var $q = common.$q;
+        var itemsPerPage = 25;
 
         var service = {
             getTopApps: getTopApps,
             search: search,
+            getApp: getApp,
+            getApps: getApps
         };
 
         return service;
@@ -19,7 +22,15 @@
         }
 
         function search(pattern) {
-            return $http.get("/api/apps?searchPattern=" + pattern);
+            return $http.get("/api/apps/search?searchPattern=" + pattern);
+        }
+
+        function getApp(packageId) {
+            return $http.get("/api/apps?packageId=" + packageId);
+        }
+
+        function getApps(page) {
+            return $http.get("/api/apps?page=" + page + "&itemsCount=" + itemsPerPage);
         }
     }
 })();

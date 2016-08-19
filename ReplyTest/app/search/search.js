@@ -23,8 +23,7 @@
         }
 
         function activate() {
-            var promises = [];
-            common.activateController(promises, controllerId)
+            common.activateController([], controllerId)
                 .then(function () { log('Activated Search View'); });
         }
     }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
@@ -25,11 +26,17 @@ namespace ReplyTest.Dal.Repositories
             return app;
         }
 
-        public IEnumerable<App> All(App app)
+        public IEnumerable<App> GetAll()
         {
             return _dataContext
                 .Set<App>()
                 .AsEnumerable();
+        }
+
+        public IQueryable<App> GetAllAsQueryable()
+        {
+            return _dataContext
+                .Set<App>();
         }
 
         public virtual IEnumerable<App> GetAllWhere(Expression<Func<App, bool>> predicate)
@@ -39,11 +46,12 @@ namespace ReplyTest.Dal.Repositories
                 .Where(predicate);
         }
 
-        public App GetByPackageName(string packageName)
+        public async virtual Task<App[]> GetAllWhereAsync(Expression<Func<App, bool>> predicate)
         {
-            return _dataContext
+            return await _dataContext
                 .Set<App>()
-                .FirstOrDefault(x => x.PackageName == packageName);
+                .Where(predicate)
+                .ToArrayAsync();
         }
     }
 }

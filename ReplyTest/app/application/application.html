@@ -1,0 +1,46 @@
+﻿<section class="mainbar" data-ng-controller="application as vm">
+    <section class="matter">
+        <div class="container">
+            <div class="row">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <img src="{{vm.app.icon}}" class="img-responsive center-block" alt="Icon">
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="list-group">
+                                <i class="list-group-item">
+                                    <h4 class="list-group-item-heading">Category</h4>
+                                    <p class="list-group-item-text">{{vm.app.category}}</p>
+                                </i>
+                                <i class="list-group-item">
+                                    <h4 class="list-group-item-heading">Downloads</h4>
+                                    <p class="list-group-item-text">{{vm.app.downloads}}</p>
+                                </i>
+                                <i class="list-group-item">
+                                    <h4 class="list-group-item-heading">Rating</h4>
+                                    <p class="list-group-item-text">{{vm.app.rating}}</p>
+                                </i>
+                                <i class="list-group-item">
+                                    <h4 class="list-group-item-heading">Rating count</h4>
+                                    <p class="list-group-item-text">{{vm.app.number_ratings}}</p>
+                                </i>
+                                <i class="list-group-item">
+                                    <h4 class="list-group-item-heading">Developer</h4>
+                                    <p class="list-group-item-text">{{vm.app.developer}}</p>
+                                </i>
+                                <i class="list-group-item">
+                                    <h4 class="list-group-item-heading">Size</h4>
+                                    <p class="list-group-item-text">{{vm.app.size}}</p>
+                                </i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-10 col-sm-offset-1">
+                            <p>{{vm.app.description}}</p>
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </section>
+</section>

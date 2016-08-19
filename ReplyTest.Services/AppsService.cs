@@ -5,6 +5,7 @@ using ReplyTest.Dal.Interfaces;
 using ReplyTest.Http;
 using ReplyTest.Http.Interfaces;
 using ReplyTest.Model;
+using ReplyTest.Model.ViewModels;
 
 namespace ReplyTest.Services
 {
@@ -37,6 +38,37 @@ namespace ReplyTest.Services
             SaveAppsToLocalStorage(apps);
 
             return apps.Results;
+        }
+
+        public async Task<App> GetByPackageIdAsync(string package)
+        {
+            var app = await _repository.GetAllWhereAsync(x => x.PackageName == package);
+            return app.FirstOrDefault();
+        }
+
+        public async Task<App[]> GetAllAsync()
+        {
+            var apps = await _repository.GetAllWhereAsync(x => true);
+            return apps;
+        }
+
+        public PagedResult<App> GetAllAsync(int page, int itemsPerPage)
+        {
+            var apps =  _repository.GetAllAsQueryable();
+
+            var count = apps.Count();
+            var pagesCount = count/itemsPerPage;
+            var result = apps
+                .OrderBy(x => x.Title)
+                .Skip(page*itemsPerPage)
+                .Take(itemsPerPage);
+
+            return new PagedResult<App>
+            {
+                CurrentPage = page,
+                Data = result.ToArray(),
+                TotalPages = pagesCount
+            };
         }
 
         public async Task<App[]> SearchAppsAsync(string pattern, int limit)

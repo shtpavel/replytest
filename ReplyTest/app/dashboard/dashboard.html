@@ -17,9 +17,9 @@
                                 </thead>
                                 <tbody>
                                     <tr data-ng-repeat="p in vm.topApps">
-                                        <td>{{p.title}}</td>
-                                        <td>{{p.category}}</td>
-                                        <td>{{p.downloads}}</td>
+                                        <td class="text-left"><a href="#/app/{{p.package_name}}">{{p.title}}</a></td>
+                                        <td class="text-left">{{p.category}}</td>
+                                        <td class="text-left">{{p.downloads}}</td>
                                     </tr>
                                 </tbody>
                             </table>

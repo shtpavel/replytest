@@ -51,6 +51,7 @@
     <Compile Include="Query\QueryParams.cs" />
     <Compile Include="Query\TopRatedRequest.cs" />
     <Compile Include="AppsResponse.cs" />
+    <Compile Include="ViewModels\PagedResult.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

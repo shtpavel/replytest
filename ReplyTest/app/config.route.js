@@ -30,13 +30,13 @@
                     }
                 }
             }, {
-                url: '/admin',
+                url: '/all',
                 config: {
-                    title: 'categories',
-                    templateUrl: 'app/admin/admin.html',
+                    title: 'all apps',
+                    templateUrl: 'app/listing/listing.html',
                     settings: {
-                        nav: 2,
-                        content: '<i class="fa fa-lock"></i> Categories'
+                        nav: 3,
+                        content: '<i class="fa fa-lock"></i> Apps'
                     }
                 }
             }, {
@@ -48,6 +48,12 @@
                         nav: 3,
                         content: '<i class="fa fa-lock"></i> Search'
                     }
+                }
+            }, {
+                url: '/app/:package',
+                config: {
+                    title: 'app',
+                    templateUrl: 'app/application/application.html',
                 }
             }
         ];

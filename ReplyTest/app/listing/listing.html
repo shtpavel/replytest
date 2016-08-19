@@ -1,21 +1,12 @@
-﻿<section id="search-view" class="mainbar" data-ng-controller="search as vm">
+﻿<section id="listing-view" class="mainbar" data-ng-controller="listing as vm">
     <section class="matter">
         <div class="container">
             <div class="row">
-                <div class="col-md-8">
-                    <input type="text" ng-model="vm.pattern" class="col-md-12" placeholder="Application name..."/>
-                </div>
-                <div class="col-md-2">
-                    <button class="btn btn-primary" ng-click="vm.search()">Search</button>
-                </div>
-            </div>
-            <br />
-            <hr />
-            <div class="row">
-                <div data-ng-repeat="app in vm.searchResults" class="col-sm-3">
+                <div data-ng-repeat="app in vm.apps" class="col-sm-3">
                     <div class="panel panel-primary">
                         <div class="panel-heading">
-                            <a href="#/app/{{app.package_name}}"><h3 class="panel-title">{{ app.title }}</h3></a>
+                            <a href="#/app/{{app.package_name}}">
+                                <h3 class="panel-title">{{ app.title }}</h3></a>
                         </div>
                         <div class="panel-body">
                             <div class="row">
@@ -43,6 +34,23 @@
                         </div>
                     </div>
                 </div>
+            </div>
+            <div class="row">
+                <nav aria-label="Page navigation">
+                    <ul class="pagination">
+                        <li>
+                            <a href="javascript:;" aria-label="Previous" ng-hide="vm.prevDisabled()" ng-click="vm.getAll(vm.currentPage - 1)">
+                                <span aria-hidden="true">&laquo;</span>
+                            </a>
+                        </li>
+                        
+                        <li>
+                            <a href="javascript:;" aria-label="Next" ng-hide="vm.nextDisabled()" ng-click="vm.getAll(vm.currentPage + 1)">
+                                <span aria-hidden="true">&raquo;</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
             </div>
         </div>
     </section>
