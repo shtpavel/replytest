@@ -6,31 +6,38 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
 using ReplyTest.Http;
+using ReplyTest.Services;
 
 namespace ReplyTest.Controllers
 {
-    [RoutePrefix("api")]
+    [RoutePrefix("api/apps")]
     public class AppsController : ApiController
     {
-        private MattersHttpClient _client;
+        private readonly IAppsService _appsService;
 
-        public AppsController()
+        public AppsController(IAppsService appsService)
         {
-            _client = new MattersHttpClient();
+            _appsService = appsService;
         }
 
         [HttpGet, Route("top")]
         public async Task<HttpResponseMessage> GetTopAppsAsync(HttpRequestMessage request)
         {
-            var response = await _client.GetTopRatedAppsAsync(15);
+            var response = await _appsService.GetTopRatedApps(15);
 
             return request.CreateResponse(HttpStatusCode.OK, response);
         }
 
-        [HttpGet, Route("search")]
-        public async Task<HttpResponseMessage> Search(HttpRequestMessage request, string searchPattern)
+        [HttpGet, Route("")]
+        public async Task<HttpResponseMessage> SearchAsync(HttpRequestMessage request, string searchPattern)
         {
-            return request.CreateResponse(HttpStatusCode.OK, await _client.GetSearchResults(searchPattern));
+            return request.CreateResponse(HttpStatusCode.OK, await _appsService.SearchAppsAsync(searchPattern, 25));
+        }
+
+        [HttpGet, Route("")]
+        public async Task<HttpResponseMessage> GetAsync(HttpRequestMessage request, string searchPattern)
+        {
+            throw new NotImplementedException();
         }
     }
 }

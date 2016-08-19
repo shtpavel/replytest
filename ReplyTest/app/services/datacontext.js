@@ -15,11 +15,11 @@
         return service;
 
         function getTopApps() {
-            return $http.get("/api/top");
+            return $http.get("/api/apps/top");
         }
 
         function search(pattern) {
-            return $http.get("/api/search?searchPattern=" + pattern);
+            return $http.get("/api/apps?searchPattern=" + pattern);
         }
     }
 })();

@@ -16,9 +16,9 @@
         activate();
 
         function search() {
-//            console.log(vm.pattern);
+            console.log(vm.pattern);
             return datacontext.search(vm.pattern).then(function(data) {
-                return vm.searchResults = data.data.results;
+                return vm.searchResults = data.data;
             });
         }
 

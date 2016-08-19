@@ -21,7 +21,7 @@
 
         function getTopApps() {
             return datacontext.getTopApps().then(function (data) {
-                return vm.topApps = data.data.results;
+                return vm.topApps = data.data;
             });
         }
     }

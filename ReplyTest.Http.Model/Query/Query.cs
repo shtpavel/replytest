@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace ReplyTest.Http.Model.Query
+namespace ReplyTest.Model.Query
 {
     public class Query
     {

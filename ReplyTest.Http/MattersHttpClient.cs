@@ -4,7 +4,9 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
-using ReplyTest.Http.Model.Query;
+using ReplyTest.Http.Interfaces;
+using ReplyTest.Model;
+using ReplyTest.Model.Query;
 
 namespace ReplyTest.Http
 {
@@ -64,7 +66,8 @@ namespace ReplyTest.Http
 
             return await SendRequestMessage<AppsResponse>(message);
         }
-        public async Task<AppsResponse> GetSearchResults(string searchString, int limit = 25)
+
+        public async Task<AppsResponse> GetSearchResults(string searchString, int limit)
         {
             var url = GetUrl("search.json", new[]
             {
